@@ -34,7 +34,7 @@ class PostGISLayer(LayerSource):
         for rec in cur:
             self.fields.append(rec[0])
 
-        # Find out which column stores the geoemtry data
+        # Find out which column stores the geometry data
         cur.execute("SELECT f_geometry_column FROM geometry_columns WHERE f_table_name = '%s'" % self.table)
         self.geom_col = cur.fetchone()[0]
 
